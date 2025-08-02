@@ -196,9 +196,7 @@ class NBVVisualization(Scene):
             dashed_voxel = DashedVMobject(voxel_outline, num_dashes=8, color=GRAY)
             occluded_voxels.add(dashed_voxel)
 
-        # Add title
-        title = Text("NBV Algorithm", font_size=28, color=WHITE)
-        title.to_edge(UP)
+
 
         # Add legend
         legend = VGroup()
@@ -222,8 +220,14 @@ class NBVVisualization(Scene):
             legend.add(item)
 
         # Animation sequence
-        # self.play(Write(title))
-        # self.wait(0.5)
+        # Add title
+        japanese_font = "Noto Serif CJK JP"
+        title = Text("Volumetric NBV Algorithm (2D TOP Down view)", font_size=28, color=WHITE)
+        title.to_edge(UP)
+        jpTtitle = Text("日本語のアニメーション", font=japanese_font, font_size=48).next_to(title, DOWN, buff=0.5)
+        self.play(Write(title), Write(jpTtitle))
+        self.wait(0.5)
+        self.play(Unwrite(title), Unwrite(jpTtitle))
 
         titlePart = Text("Plant (object) is represented as voxels", font_size=28, color=WHITE)
         titlePart.move_to(UP * 2.5)

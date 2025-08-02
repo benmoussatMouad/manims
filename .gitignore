@@ -1,3 +1,6 @@
 .idea/
 media/  
 __pycache__
+.cache/
+.bash_history
+manim-env
